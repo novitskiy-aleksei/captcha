@@ -210,7 +210,7 @@ class Captcha
 
         $result = $value != null
             && $captchaHash != null
-            && strlen($value) === $this->config['length'] // must be of the same length right?
+            && mb_strlen($value) === $this->config['length'] // must be of the same length right?
             && $this->hashCheck($value, $captchaHash);
 
         // forget the hash to prevent replay
