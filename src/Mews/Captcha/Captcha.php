@@ -50,7 +50,7 @@ class Captcha
         return self::$singleton;
     }
 
-    protected static function generateString($length, $characters = '2346789абвгдэежзыийклмнопрстфхщшюя')
+    protected static function generateString($length, $characters = '2346789абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
     {
         $charLength = mb_strlen($characters);
         $randomString = '';
