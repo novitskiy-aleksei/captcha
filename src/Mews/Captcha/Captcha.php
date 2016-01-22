@@ -50,12 +50,12 @@ class Captcha
         return self::$singleton;
     }
 
-    protected static function generateString($length, $characters = '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ')
+    protected static function generateString($length, $characters = '2346789абвгдэежзыийклмнопрстфхщшюя')
     {
-        $charLength = strlen($characters);
+        $charLength = mb_strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; ++$i) {
-            $randomString .= $characters[mt_rand(0, $charLength - 1)];
+            $randomString .= mb_substr($characters, mt_rand(0, $charLength - 1), 1);
         }
         return $randomString;
     }
@@ -109,7 +109,7 @@ class Captcha
         for ($i = 0; $i < $codeLength; ++$i) {
             $color_cols = explode(',', $this->asset('colors'));
             $fg = imagecolorallocate($new_image, trim($color_cols[0]), trim($color_cols[1]), trim($color_cols[2]));
-            imagettftext($new_image, $this->asset('fontsizes'), mt_rand(-10, 15), 10 + ($i * $space), mt_rand($this->config['height'] - 10, $this->config['height'] - 5), $fg, $this->asset('fonts'), $code[$i]);
+            imagettftext($new_image, $this->asset('fontsizes'), mt_rand(-10, 15), 10 + ($i * $space), mt_rand($this->config['height'] - 10, $this->config['height'] - 5), $fg, $this->asset('fonts'), mb_substr($code, $i, 1));
         }
         imagealphablending($new_image, false);
 
