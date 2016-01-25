@@ -53,7 +53,7 @@ class Captcha
     protected static function generateString($length, $characters = '')
     {
         if (empty($characters)) {
-            $characters = Config::get('app.characters', '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ');
+            $characters = self::instance()->config['characters'];
         }
         $charLength = mb_strlen($characters);
         $randomString = '';

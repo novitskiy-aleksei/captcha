@@ -43,7 +43,7 @@ return array(
     'quality' => 75,
 
     // Set of the characters to make captcha text
-    // default: 2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ (even if this param not set)
+    // default: 2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ
     'characters' => '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ'
 
 );
