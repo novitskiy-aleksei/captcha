@@ -50,8 +50,11 @@ class Captcha
         return self::$singleton;
     }
 
-    protected static function generateString($length, $characters = '2346789абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
+    protected static function generateString($length, $characters = '')
     {
+        if (empty($characters)) {
+            $characters = Config::get('app.characters', '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ');
+        }
         $charLength = mb_strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; ++$i) {

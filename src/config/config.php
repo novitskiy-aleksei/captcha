@@ -42,4 +42,8 @@ return array(
     // values: integer (0 to 100)
     'quality' => 75,
 
+    // Set of the characters to make captcha text
+    // default: 2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ (even if this param not set)
+    'characters' => '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ'
+
 );
